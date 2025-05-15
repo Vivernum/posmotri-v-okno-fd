@@ -56,9 +56,8 @@ ol {
 /* Основные стили */
 
 .content {
-  height: 534px;
+  width: 1140px;
   display: grid;
-  align-items: end;
   gap: 30px;
   margin: 133px 30px;
   grid-template-columns: repeat(5, 1fr);
@@ -68,10 +67,35 @@ ol {
 
 .result {
   grid-area: result;
+  align-self: end;
 
 }
 
 .content__details {
   grid-area: content__details;
-  align-self: start;
+  height: 534px;
+  justify-content: stretch;
+  /* overflow-y: scroll; */
+}
+
+/* .result__video-container {
+  width: 100%;
+} */
+
+.result__video {
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.title {
+  margin: 0 140px 26px 0;
+}
+
+.content__list-container {
+  overflow-y: scroll;
 }
