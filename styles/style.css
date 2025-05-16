@@ -71,17 +71,6 @@ ol {
 
 }
 
-.content__details {
-  grid-area: content__details;
-  height: 534px;
-  justify-content: stretch;
-  /* overflow-y: scroll; */
-}
-
-/* .result__video-container {
-  width: 100%;
-} */
-
 .result__video {
   width: 100%;
 }
@@ -92,10 +81,16 @@ ol {
   align-items: start;
 }
 
+.content__details {
+  grid-area: content__details;
+  justify-content: stretch;
+}
+
 .title {
   margin: 0 140px 26px 0;
 }
 
 .content__list-container {
-  overflow-y: scroll;
+  height: 438px;
+  overflow: auto;
 }
