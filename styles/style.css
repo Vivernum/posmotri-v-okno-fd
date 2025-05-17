@@ -60,15 +60,18 @@ ol {
   display: grid;
   gap: 30px;
   margin: 133px 30px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-template-areas: 
-  "result result result content__details content__details";
+  "result result result result result result content__details content__details content__details content__details";
 }
 
 .result {
   grid-area: result;
   align-self: end;
+}
 
+.result__video-container {
+  margin-bottom: 16px;
 }
 
 .result__video {
@@ -91,6 +94,28 @@ ol {
 }
 
 .content__list-container {
-  height: 438px;
-  overflow: auto;
+  height: 438px; /*Здесь нужно будет подогнать высоту после стилизации*/
+  overflow: scroll;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: start;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: contain;
+  object-position: center;
 }
