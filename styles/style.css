@@ -84,17 +84,32 @@ ol {
   align-items: start;
 }
 
+.search-form__fieldset-title {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
 .content__details {
   grid-area: content__details;
   justify-content: stretch;
+  max-height: 534px;
 }
 
 .title {
   margin: 0 140px 26px 0;
+  font-family: Oswald, sans-serif;
+  font-size: 75px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 94%;
+}
+
+.content__accent {
+  color: #545050;
 }
 
 .content__list-container {
-  height: 438px; /*Здесь нужно будет подогнать высоту после стилизации*/
+  height: 297px; /*Здесь нужно будет подогнать высоту после стилизации*/
   overflow: scroll;
 }
 
@@ -104,6 +119,11 @@ ol {
   gap: 30px;
 }
 
+.content__card-link {
+  text-decoration: none;
+  color: #fff;
+}
+
 .content__video-card {
   display: flex;
   align-items: start;
@@ -111,6 +131,18 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
+}
+
+.content__video-card-title {
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  line-height: 16.2px;
+  line-clamp: 2;
 }
 
 .content__video-card-thumbnail {
