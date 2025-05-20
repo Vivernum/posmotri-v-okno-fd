@@ -14,7 +14,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   align-items: center;
@@ -40,6 +40,10 @@ ol {
   list-style: none;
 }
 
+fieldset {
+  border: none;
+}
+
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -50,10 +54,20 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 /* Основные стили */
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 .content {
   width: 1140px;
@@ -61,8 +75,7 @@ ol {
   gap: 30px;
   margin: 133px 30px;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-areas: 
-  "result result result result result result content__details content__details content__details content__details";
+  grid-template-areas: "result result result result result result content__details content__details content__details content__details";
 }
 
 .result {
@@ -72,6 +85,8 @@ ol {
 
 .result__video-container {
   margin-bottom: 16px;
+  /* width: 711px;  ОНО НЕ ОТТАЛКИВАЕТ ВТОРУЮ КОЛОНКУ, РЕШУ ПОЗЖЕ
+  height: 386px; */
 }
 
 .result__video {
@@ -89,6 +104,34 @@ ol {
   font-size: inherit;
 }
 
+.search-form__checkbox-list {
+  display: flex;
+  gap: 55px;  /* ПОДОЗРИТЕЛЬНЫЙ GAP */
+}
+
+.search-form__label {
+  display: flex;
+  width: fit-content;
+}
+
+.search-form__label-text {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.search-form__label-text::placeholder {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.search-form__textfield {
+  background-color: transparent;
+  padding: 0;
+}
+
 .content__details {
   grid-area: content__details;
   justify-content: stretch;
@@ -97,7 +140,7 @@ ol {
 
 .title {
   margin: 0 140px 26px 0;
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   text-transform: uppercase;
   font-weight: 700;
@@ -121,6 +164,7 @@ ol {
 
 .content__card-link {
   text-decoration: none;
+  display: block;
   color: #fff;
 }
 
@@ -130,19 +174,28 @@ ol {
 }
 
 .content__video-card-description-container {
+  width: 190px; /* ЗАДАЛ ФИКС. ШИРИНУ КОНТЕЙНЕРУ С ОПИСАНИЕМ, ПОТОМУ ЧТО ИНАЧЕ НЕ РБОТАЕТ ПЕРЕПОЛНЕНИЕ */
   flex-grow: 1;
 }
 
 .content__video-card-title {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__video-card-description {
   line-height: 16.2px;
-  line-clamp: 2;
+  overflow: hidden;
+  line-clamp: 3;
+  display: -webkit-box;           /* Я БОЛЬШУЮ ЧАСТЬ ВРЕНМЕНИ */
+  -webkit-line-clamp: 3;          /* СИЖУ В EDGE (ТАК ПОЛУЧИЛОСЬ) */
+  -webkit-box-orient: vertical;   /* И ТУТ БЕЗ ПОДОБНОГО НЕ РАБОТАТ LINE CLAMP */
+  
 }
 
 .content__video-card-thumbnail {
