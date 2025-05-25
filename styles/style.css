@@ -102,11 +102,7 @@ fieldset {
 .search-form__fieldset-title {
   font-weight: inherit;
   font-size: inherit;
-}
-
-.search-form__checkbox-list {
-  display: flex;
-  gap: 55px;  /* ПОДОЗРИТЕЛЬНЫЙ GAP */
+  margin-bottom: 5px;
 }
 
 .search-form__label {
@@ -114,22 +110,70 @@ fieldset {
   width: fit-content;
 }
 
+.search-form__label:has(:focus-visible) {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
+}
+
 .search-form__label-text {
   font-weight: inherit;
   font-size: inherit;
+  padding-left: 5px; /* СДЕЛАЛ ОСТУП ЗДЕСЬ, ЧТОБЫ ПРИ НАВЕДЕНИИ НА ПРОМЕЖУТОК МЕЖДУ ЧЕКБОКСОМ И ТЕКСТОМ НЕ ПРОПАДАЛ ЭФФЕКТ HOVER */
 }
 
-.search-form__label-text::placeholder {
+.search-form__textfield {
+  width: 225px;
+  background-color: transparent;
+  padding: 0;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #fff;
   opacity: 0.7;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: none; /* БЕЗ ДВУХ ЭТИХ СВОЙСТВ ПОЯВЛЯЕТСЯ РАМКА */
+  border-left: none;
+  line-height: 100%;
+  padding: 2px 0 2px 0;
+  appearance: none;
 }
 
-.search-form__textfield {
-  background-color: transparent;
-  padding: 0;
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  margin: 1.5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after{
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__pseudo-checkbox:hover {
+  cursor: pointer;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  text-underline-position: under;
+  cursor: pointer;
 }
 
 .content__details {
@@ -195,7 +239,6 @@ fieldset {
   display: -webkit-box;           /* Я БОЛЬШУЮ ЧАСТЬ ВРЕНМЕНИ */
   -webkit-line-clamp: 3;          /* СИЖУ В EDGE (ТАК ПОЛУЧИЛОСЬ) */
   -webkit-box-orient: vertical;   /* И ТУТ БЕЗ ПОДОБНОГО НЕ РАБОТАТ LINE CLAMP */
-  
 }
 
 .content__video-card-thumbnail {
