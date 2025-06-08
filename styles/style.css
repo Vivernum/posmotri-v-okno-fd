@@ -92,7 +92,13 @@ fieldset {
 
 .more-button {
   /* СДЕЛАТЬ КНОПКУ ВО ВСЮ ШИРИНУ КОНТЕЙНЕРА */
+  margin: 0 3px 2px 2px;
+  padding: 7px 0;
 }
+
+/* БЕЗ ПАДДИНГОВ КНОПКА СХЛОПЫВАЕТСЯ КАК-БУДТО ПОД "ВЕСОМ"
+БЛОКА СВЕРХУ, ПОТОМУ ЧТО ЕСЛИ УБРАТЬ ФИКС. ВЫСОТУ,
+ТО КНОПКА ВЕРНЕТСЯ К НОРМАЛЬНОМУ РАЗМЕРУ */
 
 /* Основные стили */
 
@@ -234,8 +240,14 @@ fieldset {
 
 .content__list-container {
   height: 297px; /*Здесь нужно будет подогнать высоту после стилизации*/
-  overflow: scroll;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
+
+/* FLEX У КОНТЕЙНЕРА ЗАДАЛ, ЧТОБЫ РАСТЯНУТЬ КНОПКУ ПО ШИРИНЕ */
 
 .content__list {
   display: flex;
