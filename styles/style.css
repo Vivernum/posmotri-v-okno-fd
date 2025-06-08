@@ -134,6 +134,7 @@ fieldset {
 
 .result__video-container {
   margin-bottom: 16px;
+  position: relative;
   /* width: 711px;  ОНО НЕ ОТТАЛКИВАЕТ ВТОРУЮ КОЛОНКУ, РЕШУ ПОЗЖЕ
   height: 386px; */
 }
@@ -278,6 +279,7 @@ fieldset {
   flex-direction: column;
   gap: 30px;
   width: 390px;
+  position: relative;
 }
 
 /* FLEX У КОНТЕЙНЕРА ЗАДАЛ, ЧТОБЫ РАСТЯНУТЬ КНОПКУ ПО ШИРИНЕ */
@@ -339,6 +341,7 @@ fieldset {
 }
 
 .content__video-card-description {
+  width: 196px;
   line-height: 16.2px;
   overflow: hidden;
   line-clamp: 3;
