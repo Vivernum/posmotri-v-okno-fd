@@ -79,6 +79,12 @@ fieldset {
   outline-offset: 1px;
 }
 
+.button:active.button:hover{
+  background-color: #545050;
+  text-decoration: none;
+  cursor: default;
+}
+
 .button:hover {
   text-decoration: underline;
   text-underline-position: under;
@@ -175,7 +181,7 @@ fieldset {
   opacity: 0.7;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  border-right: none; /* БЕЗ ДВУХ ЭТИХ СВОЙСТВ ПОЯВЛЯЕТСЯ РАМКА */
+  border-right: none;
   border-left: none;
   line-height: 100%;
   padding: 2px 0 2px 0;
@@ -184,6 +190,20 @@ fieldset {
 
 .search-form__textfield:focus {
   outline: none;
+}
+
+.search-form__textfield:active {
+  border: 1px solid #fff;
+  cursor: default;
+}
+
+.search-form__label:active {
+  outline: none;
+}
+
+.search-form__label:active .search-form__label-text:hover {
+  text-decoration: none;
+  cursor: default;
 }
 
 .search-form__checkbox-list {
@@ -207,6 +227,18 @@ fieldset {
   width: 15px;
   height: 15px;
   background-color: #fff;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after{
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__pseudo-checkbox:active.search-form__pseudo-checkbox:hover {
+  text-decoration: none;
+  cursor: default;
 }
 
 .search-form__pseudo-checkbox:hover {
@@ -245,6 +277,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 390px;
 }
 
 /* FLEX У КОНТЕЙНЕРА ЗАДАЛ, ЧТОБЫ РАСТЯНУТЬ КНОПКУ ПО ШИРИНЕ */
@@ -255,10 +288,24 @@ fieldset {
   gap: 30px;
 }
 
+.content__list-item {
+  padding: 0 3px;
+}
+
+.content__list-item:active .content__video-card:hover > *{
+  text-decoration: none;
+  cursor: default;
+}
+
 .content__card-link {
   text-decoration: none;
-  display: block;
   color: #fff;
+}
+
+.content__card-link:hover .content__video-card-description-container {
+  text-decoration: underline;
+  /* text-underline-position: under; */
+  cursor: pointer;
 }
 
 .content__video-card {
@@ -266,9 +313,19 @@ fieldset {
   align-items: start;
 }
 
+.content__video-card:active {
+  cursor: default;
+  background-color: #545050;
+}
+
+.content__video-card:has(:focus-visible) {
+  outline: solid 1px #fff;
+}
+
 .content__video-card-description-container {
-  width: 190px; /* ЗАДАЛ ФИКС. ШИРИНУ КОНТЕЙНЕРУ С ОПИСАНИЕМ, ПОТОМУ ЧТО ИНАЧЕ НЕ РБОТАЕТ ПЕРЕПОЛНЕНИЕ */
+  width: 196px; /* ЗАДАЛ ФИКС. ШИРИНУ КОНТЕЙНЕРУ С ОПИСАНИЕМ, ПОТОМУ ЧТО ИНАЧЕ НЕ РБОТАЕТ ПЕРЕПОЛНЕНИЕ */
   flex-grow: 1;
+  float: left;
 }
 
 .content__video-card-title {
@@ -285,10 +342,16 @@ fieldset {
   line-height: 16.2px;
   overflow: hidden;
   line-clamp: 3;
-  display: -webkit-box;           /* Я БОЛЬШУЮ ЧАСТЬ ВРЕНМЕНИ */
-  -webkit-line-clamp: 3;          /* СИЖУ В EDGE (ТАК ПОЛУЧИЛОСЬ) */
-  -webkit-box-orient: vertical;   /* И ТУТ БЕЗ ПОДОБНОГО НЕ РАБОТАТ LINE CLAMP */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
+
+/* ТУТ ВООБЩЕ ПЕСНЯ, ПОТОМУ ЧТО БЕЗ OVERFLOW:HIDDEN; НЕ РАБОТАЕТ
+LINE CLAMP, НО OVERFLOW ОБРЕЗАЕТ НИЖНЮЮ ЧАСТЬ ПОСЛЕДНЕЙ СТРОКИ И
+ТУТ ВОЗНИКАЕТ ДИЛЕММА: КОГДА БЕЗ text-underline-position: under;
+ПОДЧЕРКИВАНИЕ ОТОБРАЖЕТСЯ НЕ ОЧЕНЬ КОРРЕКТНО, НО С text-underline-position: under
+ЕГО ВООБЩЕ НЕ БУДЕТ*/
 
 .content__video-card-thumbnail {
   width: 194px;
