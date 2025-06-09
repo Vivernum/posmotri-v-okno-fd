@@ -79,7 +79,7 @@ fieldset {
   outline-offset: 1px;
 }
 
-.button:active.button:hover{
+.button:active.button:hover {
   background-color: #545050;
   text-decoration: none;
   cursor: default;
@@ -97,7 +97,6 @@ fieldset {
 }
 
 .more-button {
-  /* СДЕЛАТЬ КНОПКУ ВО ВСЮ ШИРИНУ КОНТЕЙНЕРА */
   margin: 0 3px 2px 2px;
   padding: 7px 0;
 }
@@ -123,8 +122,8 @@ fieldset {
   display: grid;
   gap: 30px;
   margin: 133px 30px;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-areas: "result result result result result result content__details content__details content__details content__details";
+  grid-template-columns: 4fr 3fr;
+  grid-template-areas: "result content__details";
 }
 
 .result {
@@ -135,12 +134,18 @@ fieldset {
 .result__video-container {
   margin-bottom: 16px;
   position: relative;
-  /* width: 711px;  ОНО НЕ ОТТАЛКИВАЕТ ВТОРУЮ КОЛОНКУ, РЕШУ ПОЗЖЕ
-  height: 386px; */
+  width: 711px;
+  height: 386px;
 }
 
 .result__video {
+  height: 100%;
   width: 100%;
+  object-fit: fill;
+}
+
+.result__video:focus {
+  outline: none;
 }
 
 .search-form {
@@ -160,9 +165,24 @@ fieldset {
   width: fit-content;
 }
 
+.search-form__label:active {
+  outline: none;
+}
+
+.search-form__label:active .search-form__label-text:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: solid 1px #fff;
   outline-offset: 1px;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  text-underline-position: under;
+  cursor: pointer;
 }
 
 .search-form__label-text {
@@ -198,19 +218,24 @@ fieldset {
   cursor: default;
 }
 
-.search-form__label:active {
-  outline: none;
-}
-
-.search-form__label:active .search-form__label-text:hover {
-  text-decoration: none;
-  cursor: default;
-}
-
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
   align-items: center;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
 }
 
 .search-form__pseudo-checkbox {
@@ -223,33 +248,13 @@ fieldset {
   align-items: center;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::after{
-  content: '';
-  width: 15px;
-  height: 15px;
-  background-color: #fff;
-}
-
-.search-form__checkbox:active + .search-form__pseudo-checkbox::after{
-  content: '';
-  width: 15px;
-  height: 15px;
-  background-color: #fff;
+.search-form__pseudo-checkbox:hover {
+  cursor: pointer;
 }
 
 .search-form__pseudo-checkbox:active.search-form__pseudo-checkbox:hover {
   text-decoration: none;
   cursor: default;
-}
-
-.search-form__pseudo-checkbox:hover {
-  cursor: pointer;
-}
-
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
-  text-underline-position: under;
-  cursor: pointer;
 }
 
 .content__details {
@@ -272,13 +277,13 @@ fieldset {
 }
 
 .content__list-container {
-  height: 297px; /*Здесь нужно будет подогнать высоту после стилизации*/
-  overflow-y: scroll; 
+  height: 297px;
+  overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 390px;
+  width: 399px;
   position: relative;
 }
 
@@ -294,7 +299,7 @@ fieldset {
   padding: 0 3px;
 }
 
-.content__list-item:active .content__video-card:hover > *{
+.content__list-item:active .content__video-card:hover > * {
   text-decoration: none;
   cursor: default;
 }
@@ -359,6 +364,6 @@ LINE CLAMP, НО OVERFLOW ОБРЕЗАЕТ НИЖНЮЮ ЧАСТЬ ПОСЛЕД�
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: contain;
-  object-position: center;
+  /* object-fit: contain;
+  object-position: center; */
 }
