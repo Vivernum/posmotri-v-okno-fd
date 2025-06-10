@@ -60,7 +60,7 @@ fieldset {
 /* СТИЛИ КНОПОК */
 
 .button {
-  height: 34px;
+  min-height: 34px;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
@@ -79,7 +79,7 @@ fieldset {
   outline-offset: 1px;
 }
 
-.button:active.button:hover {
+.button:active.button {
   background-color: #545050;
   text-decoration: none;
   cursor: default;
@@ -92,7 +92,7 @@ fieldset {
 }
 
 .search-form__submit-button {
-  width: 194px;
+  min-width: 194px;
   align-self: end;
 }
 
@@ -141,6 +141,7 @@ fieldset {
 .result__video {
   height: 100%;
   width: 100%;
+  object-position: center;
   object-fit: fill;
 }
 
@@ -192,7 +193,7 @@ fieldset {
 }
 
 .search-form__textfield {
-  width: 225px;
+  min-width: 225px;
   background-color: transparent;
   padding: 0;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -278,8 +279,7 @@ fieldset {
 
 .content__list-container {
   height: 297px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -299,7 +299,7 @@ fieldset {
   padding: 0 3px;
 }
 
-.content__list-item:active .content__video-card:hover > * {
+.content__card-link:active .content__video-card:hover > * {
   text-decoration: none;
   cursor: default;
 }
@@ -311,7 +311,6 @@ fieldset {
 
 .content__card-link:hover .content__video-card-description-container {
   text-decoration: underline;
-  /* text-underline-position: under; */
   cursor: pointer;
 }
 
@@ -320,19 +319,21 @@ fieldset {
   align-items: start;
 }
 
-.content__video-card:active {
+.content__card-link:active {
   cursor: default;
+}
+
+.content__card-link:active .content__video-card {
   background-color: #545050;
 }
 
-.content__video-card:has(:focus-visible) {
+.content__card-link:has(:focus-visible) {
   outline: solid 1px #fff;
 }
 
 .content__video-card-description-container {
   width: 196px; /* ЗАДАЛ ФИКС. ШИРИНУ КОНТЕЙНЕРУ С ОПИСАНИЕМ, ПОТОМУ ЧТО ИНАЧЕ НЕ РБОТАЕТ ПЕРЕПОЛНЕНИЕ */
   flex-grow: 1;
-  float: left;
 }
 
 .content__video-card-title {
@@ -364,6 +365,6 @@ LINE CLAMP, НО OVERFLOW ОБРЕЗАЕТ НИЖНЮЮ ЧАСТЬ ПОСЛЕД�
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  /* object-fit: contain;
-  object-position: center; */
+  object-fit: fill;
+  object-position: center;
 }
