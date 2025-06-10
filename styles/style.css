@@ -200,14 +200,18 @@ fieldset {
   font-size: 18px;
   font-weight: 400;
   color: #fff;
-  opacity: 0.7;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  border-right: none;
-  border-left: none;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
   line-height: 100%;
   padding: 2px 0 2px 0;
   appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: #fff;
+  opacity: 0.7;
 }
 
 .search-form__textfield:focus {
@@ -332,18 +336,21 @@ fieldset {
 }
 
 .content__video-card-description-container {
+  padding: 0 0 0 2px;
   width: 196px; /* ЗАДАЛ ФИКС. ШИРИНУ КОНТЕЙНЕРУ С ОПИСАНИЕМ, ПОТОМУ ЧТО ИНАЧЕ НЕ РБОТАЕТ ПЕРЕПОЛНЕНИЕ */
   flex-grow: 1;
 }
 
 .content__video-card-title {
   font-family: "Oswald", sans-serif;
+  line-height: 100%;
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 6px;
 }
 
 .content__video-card-description {
